@@ -19,7 +19,6 @@ namespace BookStore.Controllers
             _context = context;
         }
 
-        // GET: Author
         public async Task<IActionResult> Index()
         {
               return _context.Authors != null ? 
@@ -27,7 +26,6 @@ namespace BookStore.Controllers
                           Problem("Entity set 'BookStoreContext.Authors'  is null.");
         }
 
-        // GET: Author/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Authors == null)
@@ -45,15 +43,11 @@ namespace BookStore.Controllers
             return View(author);
         }
 
-        // GET: Author/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Author/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AuthorId,Name,Surname")] Author author)
@@ -67,7 +61,6 @@ namespace BookStore.Controllers
             return View(author);
         }
 
-        // GET: Author/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Authors == null)
@@ -83,9 +76,6 @@ namespace BookStore.Controllers
             return View(author);
         }
 
-        // POST: Author/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("AuthorId,Name,Surname")] Author author)
@@ -118,7 +108,6 @@ namespace BookStore.Controllers
             return View(author);
         }
 
-        // GET: Author/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Authors == null)
@@ -136,7 +125,6 @@ namespace BookStore.Controllers
             return View(author);
         }
 
-        // POST: Author/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
